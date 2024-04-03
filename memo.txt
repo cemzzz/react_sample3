@@ -1,0 +1,7 @@
+npm install react-router-dom
+터미널 cmd로 변경해줘야함
+npx create-react-app .
+
+설치안될경우
+path 경로에 
+path C:\Users\tj-bu-706-24\AppData\Roaming 까지 복사 후 npm 폴더 생성
