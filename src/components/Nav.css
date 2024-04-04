@@ -1,0 +1,72 @@
+nav {
+    position: fixed; 
+    width: 15%;
+    height: 100%; 
+    border-right: 1px solid #ccc;
+    overflow-y: auto; 
+    text-align: left;
+}
+ul {
+    padding: 0;
+}
+.homeIcon{
+    font-size: 30px;
+    margin: 30px 40px;
+    display: none;
+}
+
+li {
+    list-style: none;
+    padding: 5px 0;
+}
+
+.linkFont {
+    font-size: 20px;
+    color: black;
+    display: block;
+    padding: 10px; 
+    text-decoration: none; 
+}
+
+.linkFont:hover {
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+}
+
+.nanumPen {
+    font-family: "Nanum Pen Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+    margin: 38px 40px;
+}
+
+
+@media (max-width: 1300px) {
+    nav {
+        position: fixed; 
+        width: 8%;
+        height: 100%; 
+        border-right: 1px solid #ccc;
+        overflow-y: auto; 
+        /* text-align: left; */
+    }
+    .navText {
+        display: none;
+    }
+    .nanumPen {
+        display: none;
+    }
+    .homeIcon{
+        font-size: 30px;
+        margin: 45px 40px;
+        display: block;
+    }
+
+    .linkFont:hover {
+        margin-right: 25px;
+        border-radius: 10px;
+        background-color: #f0f0f0;
+    }
+}

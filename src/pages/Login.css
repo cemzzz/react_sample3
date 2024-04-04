@@ -1,0 +1,54 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh; 
+}
+
+.inputContainer, .signContainer {
+    width: 400px;
+    margin: 10px;
+    border: 1px solid #f3f3f3;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.signContainer {
+    border-color: #ececec;
+}
+
+input {
+    width: 300px; 
+    margin: 5px 5px; 
+    background-color: #eeeeee5e;
+    border: 1px solid #ececec;
+    border-radius: 3px;
+    padding: 5px;
+    
+}
+
+button {
+    width: 300px;
+    height: 35px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #77d8ff;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+
+}
+
+/* .nanumPen {
+    margin: 10px;
+    font-size: 40px;
+} */

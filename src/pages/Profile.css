@@ -1,8 +1,13 @@
 .container {
-    margin-left: 10px; 
-    margin-right: 10px; 
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 20px; */
+    border-left : 1px solid #ccc;
+    border-right : 1px solid #ccc;
 }
 
 /* 프로필 영역 */
@@ -19,8 +24,14 @@
     margin: 10px;
     overflow: hidden;
 }
+.profileImg img {
+    width: 100%;
+    height: auto;
+}
+
 .profileInfo {
     margin-left: 20px; 
+    
 }
 
 .profileStats {
@@ -40,4 +51,31 @@
 .statLabel {
     font-size: 14px;
 }
+
+.profile-header {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+}
 /* 프로필 영역 */
+
+ /*게시물 영역  */
+ .posts-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+    .posts-grid div {
+        flex: 1 1 calc(50% - 10px); /* 2개씩 표시 */
+    }
+}
+
+@media (min-width: 900px) {
+    .posts-grid div {
+        flex: 1 1 calc(33.333% - 10px); /* 3개씩 표시 */
+    }
+
+}

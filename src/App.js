@@ -4,7 +4,12 @@ import Navbar from './components/Nav';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import Home from './pages/Home.js';
 import Profile from './pages/Profile.js';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import Login from './pages/Login.js';
+import SingUp from './pages/SignUp.js';
+import EditProfile from './pages/EditProfile.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 function App() {
   return (
@@ -13,7 +18,10 @@ function App() {
         <Navbar />
           <Routes>
             <Route path="/" element={<Home></Home>} />
-            <Route path="/profile" element={<Profile></Profile>} />   
+            <Route path="/profile" element={<Profile></Profile>} />
+            <Route path="/Login" element={<Login></Login>} /> 
+            <Route path="/SignUp" element={<SingUp></SingUp>} />
+            <Route path="/EditProfile" element={<EditProfile></EditProfile>} />     
           </Routes>  
       </Router>
     </div>
