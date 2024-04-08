@@ -26,7 +26,7 @@ body, html {
     border-color: #ececec;
 }
 
-input {
+.inputContainer input {
     width: 300px; 
     margin: 5px 5px; 
     background-color: #eeeeee5e;
@@ -36,8 +36,8 @@ input {
     
 }
 
-button {
-    width: 300px;
+.loginBtn {
+    width: 200px;
     height: 35px;
     border-radius: 10px;
     border-style: none;
@@ -45,10 +45,19 @@ button {
     color: white;
     margin-top: 20px;
     margin-bottom: 20px; 
-
 }
-
-/* .nanumPen {
+ .nanumPen {
     margin: 10px;
     font-size: 40px;
-} */
+} 
+
+.loginBtn {
+    width: 200px;
+    height: 35px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #77d8ff;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+}

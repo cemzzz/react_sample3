@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Nav';
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route, BrowserRouter as Router} from 'react-router-dom';
 import Home from './pages/Home.js';
 import Profile from './pages/Profile.js';
 import Login from './pages/Login.js';
@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
+  
   return (
     <div>
       <Router>

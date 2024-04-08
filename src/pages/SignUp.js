@@ -7,7 +7,7 @@ function SingUp(){
         <div className="loginContainer">
             <div className="inputContainer">
                 <div>
-                    <h4 className="nanumPen">Diary</h4>
+                    <h4 className="nanumPen">DiaryLog</h4>
                 </div>
                 <div>
                     <input type="text" placeholder="이메일 주소"></input>
@@ -25,7 +25,7 @@ function SingUp(){
                     <input type="password" placeholder="비밀번호 확인"></input>
                 </div>
                 <div>
-                    <button>가입하기</button>
+                    <button className="loginBtn">가입하기</button>
                 </div>
             </div>
             <div className="signContainer">
