@@ -3,6 +3,9 @@ import {useState, useEffect} from 'react';
 import './Profile.css';
 import { Link } from "react-router-dom";
 
+import { FaRegComment, FaRegHeart } from "react-icons/fa";
+import { HiOutlinePaperAirplane } from "react-icons/hi";
+
 function Profile(){
     var [userInfo, setUserInfo] = useState({username : "", follower : 0, following : 0, posts : 0, profile : "", profileImage : ""});
     
@@ -22,14 +25,19 @@ function Profile(){
     }, []);
 
     const list = [
-        {id: 1, title: '첫 번째 게시물', content: '첫 번째 게시물입니다.'},
-        {id: 2, title: '두 번째 게시물', content: '두 번째 게시물입니다.'},
-        {id: 3, title: '세 번째 게시물', content: '세 번째 게시물입니다.'},
-        {id: 4, title: '네 번째 게시물', content: '네 번째 게시물입니다.'},
-        {id: 5, title: '다섯 번째 게시물', content: '다섯 번째 게시물입니다.'},
-        {id: 6, title: '여섯 번째 게시물', content: '여섯 번째 게시물입니다.'},
-        {id: 7, title: '일곱 번째 게시물', content: '일곱 번째 게시물입니다.'},
+        {id: 1, boardImg : "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201702/27/117f5b49-1d09-4550-8ab7-87c0d82614de.jpg", content: '첫 번째 게시물입니다.', userId : "마블리", cDate : "2일", profileImg : "https://img.hankyung.com/photo/202403/01.36047379.1.jpg"},
+        {id: 2, boardImg : "https://roout.co.kr/m/p/u/gvGpTB9/f/i/7mxAM7h6jnD.jpg", content: '두 번째 게시물입니다.', userId : "마동석", cDate : "3일", profileImg : "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201912/15/07712b9e-e451-49c7-a65c-fb94b6dcda0b.jpg"},
+        {id: 3, boardImg : "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201702/27/117f5b49-1d09-4550-8ab7-87c0d82614de.jpg", content: '세 번째 게시물입니다.', userId : "마동석", cDate : "3일", profileImg : "https://img.hankyung.com/photo/202403/01.36047379.1.jpg"},
+        {id: 4, boardImg : "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201702/27/117f5b49-1d09-4550-8ab7-87c0d82614de.jpg", content: '네 번째 게시물입니다.', userId : "마동석", cDate : "3일", profileImg : "https://img.hankyung.com/photo/202403/01.36047379.1.jpg"},
+        {id: 5, boardImg : "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201702/27/117f5b49-1d09-4550-8ab7-87c0d82614de.jpg", content: '다섯 번째 게시물입니다.', userId : "마동석", cDate : "4일", profileImg : "https://img.hankyung.com/photo/202403/01.36047379.1.jpg"},
+        {id: 6, boardImg : "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201702/27/117f5b49-1d09-4550-8ab7-87c0d82614de.jpg", content: '여섯 번째 게시물입니다.', userId : "마동석", cDate : "5일", profileImg : "https://img.hankyung.com/photo/202403/01.36047379.1.jpg"},
+        {id: 7, boardImg : "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201702/27/117f5b49-1d09-4550-8ab7-87c0d82614de.jpg", content: '일곱 번째 게시물입니다.', userId : "마동석", cDate : "16일",profileImg : "https://img.hankyung.com/photo/202403/01.36047379.1.jpg"},
+    ] 
+
+    const iconList = [
+        {like: <FaRegHeart />, cmt : <FaRegComment />, dm: <HiOutlinePaperAirplane />}
     ];
+
 
     return(
         <div>
@@ -71,7 +79,11 @@ function Profile(){
                 <div className="row">
                     {list.map(item=>(
                         <div className="col-sm-6 col-md-4 col-lg-4" key={item.id}>
-                            <Menu title={item.title} content={item.content} />
+                            <Menu 
+                                title={item.title} 
+                                content={item.content} 
+                                icons={iconList[0]}
+                            />
                         </div>
                     ))}
                 </div>

@@ -6,7 +6,6 @@ function EditProfile() {
           <h5 class="editTitle"><strong>프로필 편집</strong></h5>
           <div className="profileRow">
               <div className="editImg">
-                  {/* <img src="./img/ma.jpg" alt="profile"></img> */}
                   <img src="https://img.hankyung.com/photo/202403/01.36047379.1.jpg"
                    alt="프로필 이미지" />
               </div>
