@@ -30,7 +30,7 @@ function Navbar(){
                 <li><Link to="/profile" className="linkFont">
                     <FaRegCompass /><span className="navText">탐색 탭</span></Link></li>    
 
-                <li><Link to="/profile" className="linkFont">
+                <li><Link to="/Direct" className="linkFont">
                     <HiOutlinePaperAirplane /><span className="navText">메시지</span></Link></li>    
                 
                 <li><Link to="/profile" className="linkFont">

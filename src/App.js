@@ -7,6 +7,7 @@ import Profile from './pages/Profile.js';
 import Login from './pages/Login.js';
 import SingUp from './pages/SignUp.js';
 import EditProfile from './pages/EditProfile.js';
+import Direct from './pages/Direct.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -22,7 +23,8 @@ function App() {
             <Route path="/profile" element={<Profile></Profile>} />
             <Route path="/Login" element={<Login></Login>} /> 
             <Route path="/SignUp" element={<SingUp></SingUp>} />
-            <Route path="/EditProfile" element={<EditProfile></EditProfile>} />     
+            <Route path="/EditProfile" element={<EditProfile></EditProfile>} />
+            <Route path="/Direct" element={<Direct></Direct>} />     
           </Routes>  
       </Router>
     </div>
