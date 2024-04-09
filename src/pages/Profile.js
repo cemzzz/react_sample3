@@ -1,4 +1,4 @@
-import Menu from "../components/Menu";
+import MyBoard from "../components/MyBoard";
 import {useState, useEffect} from 'react';
 import './Profile.css';
 import { Link } from "react-router-dom";
@@ -37,6 +37,16 @@ function Profile(){
     const iconList = [
         {like: <FaRegHeart />, cmt : <FaRegComment />, dm: <HiOutlinePaperAirplane />}
     ];
+    
+    const like = [
+        {likeCnt: 56},
+        {likeCnt: 70},
+        {likeCnt: 180},
+        {likeCnt: 15},
+        {likeCnt: 15},
+        {likeCnt: 33},
+        {likeCnt: 12},
+    ]
 
 
     return(
@@ -75,14 +85,12 @@ function Profile(){
                     </div>
                 </div>
 
-                <h5><strong>게시물</strong></h5>
-                <div className="row">
-                    {list.map(item=>(
-                        <div className="col-sm-6 col-md-4 col-lg-4" key={item.id}>
-                            <Menu 
-                                title={item.title} 
-                                content={item.content} 
-                                icons={iconList[0]}
+                <p><strong>게시물</strong></p>
+                <div className="board-grid">
+                    {list.map((item, index)=>(
+                        <div key={item.id}>
+                            <MyBoard 
+                                boardImg={item.boardImg} 
                             />
                         </div>
                     ))}

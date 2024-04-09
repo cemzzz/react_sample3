@@ -1,4 +1,5 @@
 import Menu from "../components/Menu";
+import Recommendation from "../components/Recommendation";
 import './Home.css'
 import { CiHeart } from "react-icons/ci";
 import { FaRegHeart, FaRegComment } from "react-icons/fa";
@@ -30,8 +31,16 @@ function Home(){
         {likeCnt: 12},
     ]
 
+    const recommendations = [
+        {id: 1, userName: "브록레스너", profileImg: "https://i.namu.wiki/i/xl7WXBmp2VQ7mQRz53DlZ_7S1O4CEA_6RERhydKMTPYsdK9oXAcvqhtijh_rHQNw1fYt7skGA4vnMOJNg40jQA.webp"},
+        {id: 2, userName: "강호동", profileImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/20231002_Jang_Won-young_%28%EC%9E%A5%EC%9B%90%EC%98%81%29.jpg/800px-20231002_Jang_Won-young_%28%EC%9E%A5%EC%9B%90%EC%98%81%29.jpg"},
+        {id: 3, userName: "바티스타", profileImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcMGJ85etcZExQHwBTctMC6RMtGhABfhM8ekgEzV9drg&s"},
+        {id: 4, userName: "로니콜먼", profileImg: "https://i.namu.wiki/i/wM1NIm8GSJ_N4aQZG8Yph6E3OML46jhX1W6N6cs5K_bOvKVlp6iWhPizLlKOiYOKLbUwtSvCcph6qzE2tNK7xA.webp"},
+        {id: 5, userName: "은가누", profileImg: "https://img.khan.co.kr/news/2023/05/12/news-p.v1.20230512.e5fffd99806f4dcabd8426d52788f51a_P1.png"},
+    ];
+
     return(
-        <div>
+        <div className="home-container">
             <div className="row">
                 {list.map((item, index) => (
                     <div className="col-sm-12 col-md-12 col-lg-12" key={item.id}>
@@ -46,6 +55,13 @@ function Home(){
                             likeCnt={like[index].likeCnt} 
                         />
                     </div>
+                ))}
+            </div>
+
+            <div className="recommendation-column">
+                <p>회원님을 위한 추천</p>
+                {recommendations.map((user) => (
+                    <Recommendation key={user.id} userName={user.userName} profileImg={user.profileImg} />
                 ))}
             </div>
         </div>

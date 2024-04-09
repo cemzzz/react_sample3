@@ -9,9 +9,9 @@
     padding: 10px;
     margin: 2px;
     background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 600px;
-    height: 750px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    width: 500px;
+    height: 680px;
 }
 
   .menu-title {
@@ -37,24 +37,28 @@
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
+    margin-left: 15px;
   }
 
   .userInfo strong, .userInfo p {
       margin: 0 10px;
+      font-size: 14px;
   }
 
   .menu-image img {
-    max-width: 500px; 
-    height: 500px;
+    max-width: 450px; 
+    height: 450px;
     object-fit: cover; 
-    border-radius: 5px; 
-    margin-top: 10px; 
+    border-radius: 3px; 
+    margin-top: 5px;
+    margin-left: 15px; 
   }
 
   .menu-icons {
     margin-top: 10px;
     font-size: 25px;
     cursor: pointer;
+    margin-left: 15px;
   }
 
   .menu-icons svg {
@@ -68,11 +72,15 @@
   .boardComment {
     display: flex;
     align-items: center; 
-    gap: 10px; 
+    gap: 5px; 
+    margin-left: 15px;
   } 
 
   .boardComment strong {
-    font-size: 15px;
+    font-size: 13px;
+  }
+  .boardComment p {
+    font-size: 13px;
   }
 
   @keyframes shake {
@@ -89,9 +97,10 @@
   }
 
   .menu input{
-    width: 500px;
+    width: 400px;
     border-style: none;
-    font-size: 14px;
+    font-size: 13px;
+    margin-left: 15px;
   }
 
   .menu input:focus {
@@ -104,3 +113,10 @@
     color: #77d8ff;
     font-size: 14px;
   }
+
+  .like{
+    font-size: 14px;
+    margin-left: 15px;
+  }
+
+ 

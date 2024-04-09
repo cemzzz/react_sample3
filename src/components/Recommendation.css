@@ -1,0 +1,45 @@
+.recommendation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.recommendation-text {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+}
+
+.recommendation-username{
+    font-size: 13px;
+    color: #292929;
+}
+.recommendation-text span{
+    font-size: 13px;
+    color: #858585;
+}
+
+.recommendation img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 10px 10px;
+}
+
+.recommendation-info {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.recommendation-follow-btn {
+    border: none; 
+    background-color: white;
+    color : #00aeff; 
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px; 
+}

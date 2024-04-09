@@ -8,7 +8,7 @@ function Menu(props){
     const toggleLike = () => {
       setLiked(!liked); 
     };
-
+   
     return(
         <div className="container">
             <div className="menu">   
@@ -33,15 +33,18 @@ function Menu(props){
                     {props.icons.dm}
                 </div>
 
-                <span><strong>좋아요 {props.likeCnt}개</strong></span>
+                <span className="like">
+                    <strong>좋아요 {props.likeCnt}개</strong>
+                </span>
 
                 <div className="boardComment">
                     <strong>{props.userId}</strong>
                     <p className="menu-content">{props.content}</p>
                 </div>
-
-                <input placeholder='댓글 달기...'></input>
-                <button><strong>게시</strong></button>
+                <div className="cmtline">
+                    <input placeholder='댓글 달기...'></input>
+                    <button><strong>게시</strong></button>
+                </div>
             </div>
         </div>
     )

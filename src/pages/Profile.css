@@ -1,13 +1,11 @@
 .container {
-    max-width: 700px;
-    margin: 0 auto;
+    max-width: 960px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* margin-bottom: 20px; */
-    border-left : 1px solid #ccc;
-    border-right : 1px solid #ccc;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 /* 프로필 영역 */
@@ -80,22 +78,38 @@
 /* 프로필 영역 */
 
  /*게시물 영역  */
- .posts-grid {
+.board-grid {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2px; 
+    width:975px; 
+}
+  
+.board-grid > div {
+    width: calc((100% / 3) - 10px); 
+    display: flex;
     justify-content: center;
-    gap: 10px;
+    margin: 1px 0; 
 }
 
-@media (min-width: 600px) and (max-width: 899px) {
-    .posts-grid div {
-        flex: 1 1 calc(50% - 10px); /* 2개씩 표시 */
+.board-grid img {
+    max-width: 325px; 
+    height: 325px;
+    object-fit: cover; 
+    border-radius: 3px;  
+}
+
+
+/* @media (min-width: 600px) and (max-width: 899px) {
+    .board-grid div {
+        flex: 1 1 calc(50% - 10px);
     }
 }
 
 @media (min-width: 900px) {
-    .posts-grid div {
-        flex: 1 1 calc(33.333% - 10px); /* 3개씩 표시 */
+    .board-grid div {
+        flex: 1 1 calc(33.333% - 10px); 
     }
+} */
 
-}
