@@ -18,15 +18,25 @@ function Direct(){
             { text: "정말이요! 산책하고 싶어요.", isMine: true },
         ],
         "로니콜먼": [
-            { text: "헬스장 갔다 왔어요?", isMine: false },
+            { text: "오늘도 헬스장에서 운동하고 오셨어요?", isMine: false },
             { text: "네, 오늘도 열심히 운동했어요!", isMine: true },
+            { text: "오늘 3대 500찍었어요", isMine: true },
+            { text: "엄청 힘들었어요", isMine: true },
         ],
     };
     const [selectedMember, setSelectedMember] = useState(null);
+
     const [selectedDmContent, setSelectedDmContent] = useState("");
+
+    const [selectedProfileImg, setSelectedProfileImg] = useState("");
+
     const handleSelectMember = (userName) => {
-        setSelectedMember(userName);
-        setSelectedDmContent(dmContents[userName]);
+        const member = members.find(member => member.userName === userName);
+        if (member) {
+            setSelectedMember(userName);
+            setSelectedDmContent(dmContents[userName]);
+            setSelectedProfileImg(member.profileImg); 
+        }
     };
 
     const [newMessage, setNewMessage] = useState("");
@@ -34,10 +44,10 @@ function Direct(){
     const handleSendMessage = () => {
         if (!selectedMember || !newMessage.trim()) return;
        
-        console.log(`Sending message to ${selectedMember.userName}: ${newMessage}`);
+        console.log(`Sending message to ${selectedMember}: ${newMessage}`);
         setNewMessage(""); 
     };
-
+    
     return(
         <div className="dm-container">
                <div className="dm-list">
@@ -45,19 +55,28 @@ function Direct(){
                     <h5><strong>lovely_Ma!</strong></h5>
                     <strong>메시지</strong> 
                 </div>
+
                 {members.map((member) => (
                     <div className="dm-list-item" key={member.id} onClick={() => handleSelectMember(member.userName)}>
                         <img src={member.profileImg} alt="Profile" className="dm-profile-img"/>
                         <span className="dm-user-name">{member.userName}</span>
                     </div>
                 ))}
+
             </div>
             <div className="dm-content">
-                {selectedMember && dmContents[selectedMember].map((message, index) => (
-                    <div key={index} className={`dm-message ${message.isMine ? 'mine' : ''}`}>
-                        <p>{message.text}</p>
+                {selectedProfileImg && (
+                    <div className="profile-image-container">
+                        <img src={selectedProfileImg} alt="Profile" className="selected-profile-img" />
                     </div>
-                ))}
+                )}
+                <div className="messages-container">
+                    {selectedMember && dmContents[selectedMember].map((message, index) => (
+                        <div key={index} className={`dm-message ${message.isMine ? 'mine' : ''}`}>
+                            <p>{message.text}</p>
+                        </div>
+                    ))}
+                </div>
                 <div className="message-input-container">
                     <input
                         type="text"

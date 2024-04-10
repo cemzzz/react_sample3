@@ -12,7 +12,8 @@ function Login(){
         const jsonData = await response.json();
         if (jsonData.result == "success") {
             sessionStorage.setItem('userId', userId); 
-            sessionStorage.setItem('userName', userName); 
+            sessionStorage.setItem('userName', userName);
+            window.location.href="/"; 
         } else {
             alert("로그인 실패!");
         }
