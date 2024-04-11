@@ -7,6 +7,7 @@ const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'img')));  
 
 
 
@@ -74,6 +75,30 @@ app.get('/profile.dox', function (req, res) {
     });
 });
 
+// 회원가입
+app.post('/snsUserJoin.dox', (req, res) => {
+  let map = req.body;
+  connection.query("INSERT INTO TBL_SNS_USER (userId, userPwd, userName, profile, profileImage) VALUES (?, ?, ?, ?, ?)",
+    [map.userId, map.userPwd, map.userName, map.profile, map.profileImage], (error, results, fields) => {
+      if (error) throw error;
+
+      res.send({ result: "회원가입이 완료되었습니다." });
+    });
+});
+
+app.get('/snsUserIdCheck.dox', (req, res) => { // 유저 아이디 중복 체크
+  let map = req.query;
+  connection.query("SELECT * FROM TBL_SNS_USER WHERE USERID = ?", [map.userId], (error, results, fields) => {
+    if (error) throw error;
+    if (results.length == 0) {
+      res.send({ result: "사용 가능한 아이디입니다." });
+      return;
+    } else {
+      res.send({ result: "중복된 아이디입니다." });
+    }
+  });
+});
+
 //로그인
 app.get('/snsUserLogin.dox', (req, res) => {
     let map = req.query;
@@ -93,10 +118,11 @@ app.get('/snsUserLogin.dox', (req, res) => {
 });
 
 //게시글 목록
-
 app.get('/snsBoardList.dox', (req, res) => { // 게시글 목록 출력
   let map = req.query;
-  connection.query("SELECT B.*, CONCAT(I.filePath, I.fileName) AS imageUrl FROM TBL_SNS_BOARD B LEFT JOIN TBL_SNS_IMAGES I ON B.BOARDNO = I.BOARDNO", (error, results, fields) => {
+  connection.query(
+    "SELECT B.*, CONCAT(I.filePath, I.fileName) AS imageUrl, profileImage FROM TBL_SNS_BOARD B INNER JOIN TBL_SNS_IMAGES I ON B.BOARDNO = I.BOARDNO INNER JOIN tbl_sns_user U ON U.userid = B.userId ORDER BY CDATETIME DESC", 
+    (error, results, fields) => {
     if (error) throw error;
 
     if (results.length == 0) {
@@ -106,19 +132,6 @@ app.get('/snsBoardList.dox', (req, res) => { // 게시글 목록 출력
     }
   });
 });
-
-// app.get('/snsBoardList.dox', (req, res) => { // 게시글 목록 출력
-//   let map = req.query;
-//   connection.query("SELECT * FROM TBL_SNS_BOARD", (error, results, fields) => {
-//     if (error) throw error;
-
-//     if (results.length == 0) {
-//       res.send({ result: "게시글 없음" });
-//     } else {
-//       res.send(results);
-//     }
-//   });
-// });
 
 //게시글 등록
 app.post('/snsWriteBoard.dox', (req, res) => { // 게시글 작성
@@ -147,5 +160,23 @@ app.post('/snsWriteBoard.dox', (req, res) => { // 게시글 작성
       res.send({ message: "게시글 작성 및 이미지 업로드가 완료되었습니다." });
     });
   });
+
+//프로필 출력
+app.get('/snsProfile.dox', (req, res) => {
+  let map = req.query;
+  connection.query(
+    "SELECT B.*, CONCAT(I.filePath, I.fileName) AS imageUrl, profileImage FROM TBL_SNS_BOARD B INNER JOIN TBL_SNS_IMAGES I ON B.BOARDNO = I.BOARDNO INNER JOIN tbl_sns_user U ON U.userid = B.userId WHERE U.userId = ? ORDER BY CDATETIME DESC", 
+    [map.userId],
+    (error, results, fields) => {
+    if (error) throw error;
+
+    if (results.length == 0) {
+      res.send({ result: "게시글 없음" });
+    } else {
+      res.send(results);
+    }
+  });
+});
+
 
 app.listen(4000)
