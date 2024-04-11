@@ -7,6 +7,7 @@ import { FaRegHeart, FaRegComment } from "react-icons/fa";
 import { HiOutlinePaperAirplane } from "react-icons/hi";
 
 function Home(){
+    
     // const list = [
     //     {id: 1, boardImg : "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201702/27/117f5b49-1d09-4550-8ab7-87c0d82614de.jpg", content: '생막창과 삼겹살이 맛있는 #불막열삼합정점 #합정막창 #상수막창', userId : "마블리", cDate : "2일", profileImg : "https://img.hankyung.com/photo/202403/01.36047379.1.jpg"},
     //     {id: 2, boardImg : "https://roout.co.kr/m/p/u/gvGpTB9/f/i/7mxAM7h6jnD.jpg", content: '두 번째 게시물입니다.', userId : "마동석", cDate : "3일", profileImg : "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201912/15/07712b9e-e451-49c7-a65c-fb94b6dcda0b.jpg"},
@@ -60,7 +61,8 @@ function Home(){
                         <Menu 
                             boardNo={item.boardNo}
                             userId={item.userId}
-                            images={[item.imageUrl]} 
+                            profileImg={item.profileImage}
+                            images={[`http://localhost:4000/${item.imageUrl}`]} 
                             content={item.content} 
                             cDate={item.cDateTime} 
                             icons={iconList[0]}

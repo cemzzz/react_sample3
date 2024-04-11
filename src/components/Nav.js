@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import Modal from "../components/Modal";
 import './Nav.css'
 import { useState, useEffect } from 'react';
@@ -9,13 +9,11 @@ import { GrLogout } from "react-icons/gr";
 import { FaRegCompass } from "react-icons/fa";
 import { HiOutlinePaperAirplane } from "react-icons/hi";
 
-
 function Navbar(){
+    let location = useLocation(); 
     let [modal, setModal] = useState(false);
-
     const [userId, setUserId] = useState("");
     const [showModalWrite, setShowModalWrite] = useState(false);
-
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [previewImages, setPreviewImages] = useState([]);
 
@@ -25,11 +23,15 @@ function Navbar(){
             setUserId(sessionUserId);
         }
     }, []);
+    
+    if (location.pathname === '/Login' || location.pathname === '/SignUp') {
+        return null;
+    }
 
     const onLogout = () => {
         if (window.confirm("정말 로그아웃할까요?")) {
             sessionStorage.clear(); 
-            window.location.href = "/login";
+            window.location.href = "/Login";
         } else {
             return;
         }
@@ -161,10 +163,16 @@ function Navbar(){
                     <p><strong>새 게시물 등록</strong></p>
                     <textarea id="content"></textarea>
                 </div>
-                <input type="file" accept="image/*" multiple onChange={handleFileUpload} />
-                {previewImages.map((image, index) => (
-                        <img key={index} src={image} alt={`Uploaded ${index}`} style={{ width: '140px', height: '140px', marginRight: '10px', marginBottom: '5px' }} />
-                ))}
+                <div className="file-upload-container">
+                    <div className="file-input-container">
+                        <input type="file" accept="image/*" multiple onChange={handleFileUpload} />
+                    </div>
+                    <div className="preview-container">
+                        {previewImages.map((image, index) => (
+                            <img key={index} src={image} alt={`Uploaded ${index}`} className="preview-image" />
+                        ))}
+                    </div>
+                </div>
                 <div className="form-group">
                     <button className="insertBtn" onClick={submitWrite}>게시물 등록</button>
                 </div>

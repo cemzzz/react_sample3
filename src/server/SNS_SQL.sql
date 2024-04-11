@@ -26,14 +26,15 @@ CREATE TABLE IF NOT EXISTS `tbl_sns_board` (
   `content` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `cdatetime` datetime DEFAULT NULL,
   PRIMARY KEY (`boardNo`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- 테이블 데이터 test.tbl_sns_board:~4 rows (대략적) 내보내기
+-- 테이블 데이터 test.tbl_sns_board:~5 rows (대략적) 내보내기
 INSERT INTO `tbl_sns_board` (`boardNo`, `userId`, `content`, `cdatetime`) VALUES
 	(21, 'user3', '등록 테스트', '2024-04-11 11:27:50'),
 	(22, 'user3', '테스트 등록', '2024-04-11 11:36:00'),
 	(23, 'user3', '한 번 더 테스트', '2024-04-11 11:50:18'),
-	(24, 'user1', '이것도 등록', '2024-04-11 11:55:20');
+	(24, 'user1', '이것도 등록', '2024-04-11 11:55:20'),
+	(25, 'user3', '채소 게시글 등록 테스트', '2024-04-11 13:17:28');
 
 -- 테이블 test.tbl_sns_images 구조 내보내기
 CREATE TABLE IF NOT EXISTS `tbl_sns_images` (
@@ -43,14 +44,15 @@ CREATE TABLE IF NOT EXISTS `tbl_sns_images` (
   `fileName` varchar(255) DEFAULT NULL,
   `fileOrgName` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`fileNo`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- 테이블 데이터 test.tbl_sns_images:~2 rows (대략적) 내보내기
+-- 테이블 데이터 test.tbl_sns_images:~5 rows (대략적) 내보내기
 INSERT INTO `tbl_sns_images` (`fileNo`, `boardNo`, `filePath`, `fileName`, `fileOrgName`) VALUES
 	(10, 21, 'img/', '240411112750_vegetable4.jpg', 'vegetable4.jpg'),
 	(11, 22, 'img/', '240411113600_img1.jpg', 'img1.jpg'),
 	(12, 23, 'img/', '240411115018_vegetable4.jpg', 'vegetable4.jpg'),
-	(13, 24, 'img/', '240411115520_img.jpg', 'img.jpg');
+	(13, 24, 'img/', '240411115520_img.jpg', 'img.jpg'),
+	(14, 25, 'img/', '240411131728_vegetable3.jpg', 'vegetable3.jpg');
 
 -- 테이블 test.tbl_sns_user 구조 내보내기
 CREATE TABLE IF NOT EXISTS `tbl_sns_user` (
@@ -60,14 +62,15 @@ CREATE TABLE IF NOT EXISTS `tbl_sns_user` (
   `follower` int DEFAULT '0',
   `following` int DEFAULT '0',
   `profile` varchar(255) NOT NULL,
+  `profileImage` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- 테이블 데이터 test.tbl_sns_user:~3 rows (대략적) 내보내기
-INSERT INTO `tbl_sns_user` (`userid`, `userPwd`, `username`, `follower`, `following`, `profile`) VALUES
-	('user1', '1234', '홍길동', 100, 150, '안녕하세요! 홍길동입니다. 만나서 반가워요.'),
-	('user2', '1234', '사용자2', 200, 300, '안녕하세요, 사용자 2입니다. 제 프로필에 오신 것을 환영합니다.'),
-	('user3', '1234', '사용자3', 50, 75, '안녕하세요! 사용자 3입니다. 연락해 주세요.');
+INSERT INTO `tbl_sns_user` (`userid`, `userPwd`, `username`, `follower`, `following`, `profile`, `profileImage`) VALUES
+	('user1', '1234', '마동석', 100, 150, '안녕하세요! 홍길동입니다. 만나서 반가워요.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq8dsmjbmBWcREmiATXIAbJx-E2oB7lf0K1C3UuxB9_A&s'),
+	('user2', '1234', '은가누', 200, 300, '안녕하세요, 사용자 2입니다. 제 프로필에 오신 것을 환영합니다.', 'https://img.wowtv.co.kr/wowtv_news/dnrs/20230323/2023032308145802122d3244b4fed182172185139.jpg'),
+	('user3', '1234', '장원영', 50, 75, '안녕하세요! 사용자 3입니다. 연락해 주세요.', 'https://i.namu.wiki/i/_hZOlTayAgj4o2_poQRibNYekqbFl8YMTKW-sgiLguSDL47L_Zjcx5L2zaIwf7ZSasImsryUAHyjKM9-DqvlGw.webp');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

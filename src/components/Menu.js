@@ -26,9 +26,9 @@ function Menu(props){
                     <img src={props.boardImg} alt="게시물 이미지" />
                 </div> */}
 
-                {props.images && props.images.map((image, index) => (
+                {props.images && props.images.map((images, index) => (
                     <div key={index} className="menu-image">
-                        <img src={image} alt={`게시물 이미지 ${index}`} />
+                        <img src={images} alt={`게시물 이미지 ${index}`} />
                     </div>
                 ))}
 
