@@ -10,18 +10,18 @@ function Direct(){
 
     const dmContents = {
         "장원영": [
-            { text: "안녕하세요, 장원영입니다!", isMine: false },
             { text: "안녕하세요!", isMine: true },
+            { text: "안녕하세요, 장원영입니다!", isMine: false },
         ],
         "윈터": [
-            { text: "오늘 날씨가 좋네요.", isMine: false },
             { text: "정말이요! 산책하고 싶어요.", isMine: true },
+            { text: "오늘 날씨가 좋네요.", isMine: false },
         ],
         "로니콜먼": [
-            { text: "오늘도 헬스장에서 운동하고 오셨어요?", isMine: false },
             { text: "네, 오늘도 열심히 운동했어요!", isMine: true },
             { text: "오늘 3대 500찍었어요", isMine: true },
             { text: "엄청 힘들었어요", isMine: true },
+            { text: "오늘도 헬스장에서 운동하고 오셨어요?", isMine: false },
         ],
     };
     const [selectedMember, setSelectedMember] = useState(null);

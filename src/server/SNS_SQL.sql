@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `tbl_sns_board` (
   KEY `USERID` (`USERID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- 내보낼 데이터가 선택되어 있지 않습니다.
+-- 테이블 데이터 test.tbl_sns_board:~0 rows (대략적) 내보내기
 
 -- 테이블 test.tbl_sns_images 구조 내보내기
 CREATE TABLE IF NOT EXISTS `tbl_sns_images` (
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `tbl_sns_images` (
   `fileOrgName` varchar(150) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- 내보낼 데이터가 선택되어 있지 않습니다.
+-- 테이블 데이터 test.tbl_sns_images:~0 rows (대략적) 내보내기
 
 -- 테이블 test.tbl_sns_user 구조 내보내기
 CREATE TABLE IF NOT EXISTS `tbl_sns_user` (
@@ -51,7 +51,11 @@ CREATE TABLE IF NOT EXISTS `tbl_sns_user` (
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- 내보낼 데이터가 선택되어 있지 않습니다.
+-- 테이블 데이터 test.tbl_sns_user:~3 rows (대략적) 내보내기
+INSERT INTO `tbl_sns_user` (`userid`, `userPwd`, `username`, `follower`, `following`, `profile`) VALUES
+	('user1', '1234', '홍길동', 100, 150, '안녕하세요! 홍길동입니다. 만나서 반가워요.'),
+	('user2', '1234', '사용자2', 200, 300, '안녕하세요, 사용자 2입니다. 제 프로필에 오신 것을 환영합니다.'),
+	('user3', '1234', '사용자3', 50, 75, '안녕하세요! 사용자 3입니다. 연락해 주세요.');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
