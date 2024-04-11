@@ -129,10 +129,14 @@ function Navbar(){
             <p className="nanumPen">DiaryLog</p>
             <p className="homeIcon"><IoLogoInstagram /></p>
             <ul>
-                <li><Link to="/" className="linkFont">
-                    <IoHomeOutline /><span className="navText">홈</span></Link></li>
+                <li>
+                    <Link to="/" className={`linkFont ${location.pathname === '/' ? 'activeTab' : ''}`}>
+                    <IoHomeOutline /><span className="navText">홈</span>
+                    </Link>
+                </li>
                 
-                <li><div className="linkFont">
+                <li>
+                    <div className="linkFont">
                     <BiAddToQueue />
                     {
                         sessionStorage.getItem("userId") != null &&
@@ -143,17 +147,25 @@ function Navbar(){
                     </div>
                 </li>
 
-                <li><Link to="/profile" className="linkFont">
-                    <FaRegCompass /><span className="navText">탐색 탭</span></Link></li>    
+                <li>
+                    <Link to="/text" className="linkFont">
+                    <FaRegCompass /><span className="navText">탐색 탭</span></Link>
+                </li>    
 
-                <li><Link to="/Direct" className="linkFont">
-                    <HiOutlinePaperAirplane /><span className="navText">메시지</span></Link></li>    
+                <li>
+                    <Link to="/Direct" className={`linkFont ${location.pathname === '/Direct' ? 'activeTab' : ''}`}>
+                    <HiOutlinePaperAirplane /><span className="navText">메시지</span></Link>
+                </li>    
                 
-                <li><Link to="/profile" className="linkFont">
-                    <CgProfile /><span className="navText">프로필</span></Link></li>
+                <li>
+                    <Link to="/profile" className={`linkFont ${location.pathname === '/profile' ? 'activeTab' : ''}`}>
+                    <CgProfile /><span className="navText">프로필</span></Link>
+                </li>
                 
-                <li><Link className="linkFont" onClick={onLogout}>
-                    <GrLogout /><span className="navText">로그아웃</span></Link></li>
+                <li>
+                    <Link className="linkFont" onClick={onLogout}>
+                    <GrLogout /><span className="navText">로그아웃</span></Link>
+                </li>
             </ul>    
         </nav>
         

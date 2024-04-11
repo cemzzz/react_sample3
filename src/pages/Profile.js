@@ -48,6 +48,24 @@ function Profile(){
         {likeCnt: 12},
     ]
 
+    
+    const [profile, setProfile] = useState([]);
+    const userId = sessionStorage.getItem('userId') || localStorage.getItem('userId'); 
+
+    useEffect(() => {
+        
+        async function fetchProfile() {
+            try {
+                const res = await fetch(`http://localhost:4000/snsProfile.dox?userId=${userId}`);
+                const jsonData = await res.json();
+                setProfile(jsonData);
+            } catch (error) {
+                console.log("에러!:", error);
+            }
+        }
+        fetchProfile();
+    }, [userId]);
+
 
     return(
         <div>
@@ -86,14 +104,20 @@ function Profile(){
                 </div>
 
                 <p><strong>게시물</strong></p>
-                <div className="board-grid">
-                    {list.map((item, index)=>(
+                <div className="board-grid" >
+                    {profile.map((item) => (
+                        <MyBoard 
+                            key={item.boardNo} boardImg={[`http://localhost:4000/${item.imageUrl}`]} 
+                        /> 
+                    ))}
+
+                    {/* {list.map((item, index)=>(
                         <div key={item.id}>
                             <MyBoard 
                                 boardImg={item.boardImg} 
                             />
                         </div>
-                    ))}
+                    ))} */}
                 </div>
             </div>
         </div>

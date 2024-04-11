@@ -119,3 +119,10 @@ li {
     object-fit: cover;
     border-radius: 50%;
 }
+
+.activeTab {
+    background-color: #77d8ff;
+    color: white;
+    border-radius: 10px; 
+    margin-right: 10px;
+}

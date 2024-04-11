@@ -57,7 +57,6 @@ function Home(){
     return(
         <div className="home-container">
             <div className="row">
-
                 {boardList.map((item, index) => (
                     <div className="col-sm-12 col-md-12 col-lg-12" key={item.boardNo}>
                         <Menu 
@@ -71,22 +70,7 @@ function Home(){
                             // likeCnt={like[index].likeCnt} 
                         />
                     </div>
-                ))}
-                
-                {/* {list.map((item, index) => (
-                    <div className="col-sm-12 col-md-12 col-lg-12" key={item.id}>
-                        <Menu
-                            profileImg={item.profileImg} 
-                            userId={item.userId}
-                            boardImg={item.boardImg} 
-                            content={item.content}
-                            cDate={item.cDate}
-                            title={item.title}
-                            icons={iconList[0]}
-                            likeCnt={like[index].likeCnt} 
-                        />
-                    </div>
-                ))} */}
+                ))}   
             </div>
 
             <div className="recommendation-column">
