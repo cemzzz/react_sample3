@@ -20,15 +20,17 @@ function Home(){
     const iconList = [
         {like: <FaRegHeart />, cmt : <FaRegComment />, dm: <HiOutlinePaperAirplane />}
     ];
-    const like = [
-        {likeCnt: 56},
-        {likeCnt: 70},
-        {likeCnt: 180},
-        {likeCnt: 15},
-        {likeCnt: 15},
-        {likeCnt: 33},
-        {likeCnt: 12},
-    ]
+    // const like = [
+    //     {likeCnt: 56},
+    //     {likeCnt: 70},
+    //     {likeCnt: 180},
+    //     {likeCnt: 15},
+    //     {likeCnt: 15},
+    //     {likeCnt: 33},
+    //     {likeCnt: 12},
+    //     {likeCnt: 52},
+    // ]
+
     const recommendations = [
         {id: 1, userName: "브록레스너", profileImg: "https://i.namu.wiki/i/xl7WXBmp2VQ7mQRz53DlZ_7S1O4CEA_6RERhydKMTPYsdK9oXAcvqhtijh_rHQNw1fYt7skGA4vnMOJNg40jQA.webp"},
         {id: 2, userName: "강호동", profileImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/20231002_Jang_Won-young_%28%EC%9E%A5%EC%9B%90%EC%98%81%29.jpg/800px-20231002_Jang_Won-young_%28%EC%9E%A5%EC%9B%90%EC%98%81%29.jpg"},
@@ -66,7 +68,7 @@ function Home(){
                             content={item.content} 
                             cDate={item.cDateTime} 
                             icons={iconList[0]}
-                            likeCnt={like[index].likeCnt} 
+                            // likeCnt={like[index].likeCnt} 
                         />
                     </div>
                 ))}

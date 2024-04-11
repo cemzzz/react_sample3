@@ -40,7 +40,7 @@ function Menu(props){
                 </div>
 
                 <span className="like">
-                    <strong>좋아요 {props.likeCnt}개</strong>
+                    <strong>좋아요 2개</strong>
                 </span>
 
                 <div className="boardComment">
