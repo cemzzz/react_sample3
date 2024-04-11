@@ -4,7 +4,10 @@ const mysql = require('mysql');
 const path = require('path');
 const session = require('express-session');
 const app = express();
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 app.use(cors());
+
 
 
 const multer = require('multer');
@@ -89,12 +92,41 @@ app.get('/snsUserLogin.dox', (req, res) => {
     });
 });
 
+//게시글 목록
+
+app.get('/snsBoardList.dox', (req, res) => { // 게시글 목록 출력
+  let map = req.query;
+  connection.query("SELECT B.*, CONCAT(I.filePath, I.fileName) AS imageUrl FROM TBL_SNS_BOARD B LEFT JOIN TBL_SNS_IMAGES I ON B.BOARDNO = I.BOARDNO", (error, results, fields) => {
+    if (error) throw error;
+
+    if (results.length == 0) {
+      res.send({ result: "게시글 없음" });
+    } else {
+      res.send(results);
+    }
+  });
+});
+
+// app.get('/snsBoardList.dox', (req, res) => { // 게시글 목록 출력
+//   let map = req.query;
+//   connection.query("SELECT * FROM TBL_SNS_BOARD", (error, results, fields) => {
+//     if (error) throw error;
+
+//     if (results.length == 0) {
+//       res.send({ result: "게시글 없음" });
+//     } else {
+//       res.send(results);
+//     }
+//   });
+// });
+
+//게시글 등록
 app.post('/snsWriteBoard.dox', (req, res) => { // 게시글 작성
     const map = req.body;
   
     console.log("server map===>>>", req.body);
     // 게시글 정보 삽입
-    connection.query("INSERT INTO TBL_SNS_BOARD VALUES (NULL, ?, ?, NOW())", [map.userId, map.contents], (error, results, fields) => {
+    connection.query("INSERT INTO TBL_SNS_BOARD VALUES (NULL, ?, ?, NOW())", [map.userId, map.content], (error, results, fields) => {
       if (error) throw error;
   
       // 게시글 작성 성공 시

@@ -21,24 +21,36 @@ USE `test`;
 
 -- 테이블 test.tbl_sns_board 구조 내보내기
 CREATE TABLE IF NOT EXISTS `tbl_sns_board` (
-  `BOARDID` int NOT NULL,
-  `USERID` int DEFAULT NULL,
-  `CONTENTS` varchar(1000) DEFAULT NULL,
-  PRIMARY KEY (`BOARDID`),
-  KEY `USERID` (`USERID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `boardNo` int NOT NULL AUTO_INCREMENT,
+  `userId` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `content` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `cdatetime` datetime DEFAULT NULL,
+  PRIMARY KEY (`boardNo`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- 테이블 데이터 test.tbl_sns_board:~0 rows (대략적) 내보내기
+-- 테이블 데이터 test.tbl_sns_board:~4 rows (대략적) 내보내기
+INSERT INTO `tbl_sns_board` (`boardNo`, `userId`, `content`, `cdatetime`) VALUES
+	(21, 'user3', '등록 테스트', '2024-04-11 11:27:50'),
+	(22, 'user3', '테스트 등록', '2024-04-11 11:36:00'),
+	(23, 'user3', '한 번 더 테스트', '2024-04-11 11:50:18'),
+	(24, 'user1', '이것도 등록', '2024-04-11 11:55:20');
 
 -- 테이블 test.tbl_sns_images 구조 내보내기
 CREATE TABLE IF NOT EXISTS `tbl_sns_images` (
+  `fileNo` int NOT NULL AUTO_INCREMENT,
   `boardNo` int DEFAULT NULL,
-  `filePath` varchar(150) DEFAULT NULL,
-  `fileName` varchar(150) DEFAULT NULL,
-  `fileOrgName` varchar(150) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `filePath` varchar(255) NOT NULL,
+  `fileName` varchar(255) DEFAULT NULL,
+  `fileOrgName` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`fileNo`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- 테이블 데이터 test.tbl_sns_images:~0 rows (대략적) 내보내기
+-- 테이블 데이터 test.tbl_sns_images:~2 rows (대략적) 내보내기
+INSERT INTO `tbl_sns_images` (`fileNo`, `boardNo`, `filePath`, `fileName`, `fileOrgName`) VALUES
+	(10, 21, 'img/', '240411112750_vegetable4.jpg', 'vegetable4.jpg'),
+	(11, 22, 'img/', '240411113600_img1.jpg', 'img1.jpg'),
+	(12, 23, 'img/', '240411115018_vegetable4.jpg', 'vegetable4.jpg'),
+	(13, 24, 'img/', '240411115520_img.jpg', 'img.jpg');
 
 -- 테이블 test.tbl_sns_user 구조 내보내기
 CREATE TABLE IF NOT EXISTS `tbl_sns_user` (

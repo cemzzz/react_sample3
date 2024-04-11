@@ -53,12 +53,12 @@ function Navbar(){
     };
     const submitWrite = async () => {
         // const title = document.querySelector("#title").value;
-        const contents = document.querySelector("#contents").value;
+        const content = document.querySelector("#content").value;
 
         try {
             const map = {};
             // map.title = title;
-            map.contents = contents;
+            map.content = content;
             map.image = selectedFiles;
             map.userId = userId;
 
@@ -108,8 +108,15 @@ function Navbar(){
             //alert(jsonData.message);
             //navigate('/');
             setShowModalWrite(false);
+            if (response.ok) {
+                alert("게시글이 등록됐습니다.");
+                setModal(false); 
+            } else {
+                alert("게시글 등록에 실패했습니다."); 
+            }
         } catch (error) {
             console.error("Error:", error);
+            alert("게시글 등록 중 오류가 발생했습니다.")
         }
     };
     //게시글 등록 end
@@ -152,7 +159,7 @@ function Navbar(){
             <Modal isOpen={modal} isClose={()=>setModal(false)}> 
                 <div className="form-group">
                     <p><strong>새 게시물 등록</strong></p>
-                    <textarea id="contents"></textarea>
+                    <textarea id="content"></textarea>
                 </div>
                 <input type="file" accept="image/*" multiple onChange={handleFileUpload} />
                 {previewImages.map((image, index) => (

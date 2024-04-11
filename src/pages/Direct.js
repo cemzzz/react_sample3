@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Direct.css';
+import { BiMessageSquareEdit } from "react-icons/bi";
  
 function Direct(){
     const members = [
@@ -18,9 +19,9 @@ function Direct(){
             { text: "오늘 날씨가 좋네요.", isMine: false },
         ],
         "로니콜먼": [
-            { text: "네, 오늘도 열심히 운동했어요!", isMine: true },
-            { text: "오늘 3대 500찍었어요", isMine: true },
             { text: "엄청 힘들었어요", isMine: true },
+            { text: "오늘 3대 500찍었어요", isMine: true },
+            { text: "네, 오늘도 열심히 운동했어요!", isMine: true },
             { text: "오늘도 헬스장에서 운동하고 오셨어요?", isMine: false },
         ],
     };
@@ -50,24 +51,28 @@ function Direct(){
     
     return(
         <div className="dm-container">
-               <div className="dm-list">
+            <div className="dm-list">
                 <div className="naming">
-                    <h5><strong>lovely_Ma!</strong></h5>
+                    <div className="title-and-icon">
+                        <h5><strong>lovely_Ma!</strong></h5>
+                        <BiMessageSquareEdit className="icon-right" />
+                    </div>
                     <strong>메시지</strong> 
                 </div>
 
                 {members.map((member) => (
-                    <div className="dm-list-item" key={member.id} onClick={() => handleSelectMember(member.userName)}>
+                    <div className={`dm-list-item ${selectedMember === member.userName ? 'selected' : ''}`} key={member.id} onClick={() => handleSelectMember(member.userName)}>
                         <img src={member.profileImg} alt="Profile" className="dm-profile-img"/>
                         <span className="dm-user-name">{member.userName}</span>
                     </div>
                 ))}
-
+                
             </div>
             <div className="dm-content">
                 {selectedProfileImg && (
                     <div className="profile-image-container">
                         <img src={selectedProfileImg} alt="Profile" className="selected-profile-img" />
+                        <h5 className="selected-user-name">{selectedMember}</h5>
                     </div>
                 )}
                 <div className="messages-container">

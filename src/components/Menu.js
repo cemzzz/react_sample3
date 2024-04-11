@@ -22,9 +22,15 @@ function Menu(props){
                     </div>
                 </div>
                 
-                <div className="menu-image">
+                {/* <div className="menu-image">
                     <img src={props.boardImg} alt="게시물 이미지" />
-                </div>
+                </div> */}
+
+                {props.images && props.images.map((image, index) => (
+                    <div key={index} className="menu-image">
+                        <img src={image} alt={`게시물 이미지 ${index}`} />
+                    </div>
+                ))}
 
                 <div className="menu-icons">
                     {liked ? 
