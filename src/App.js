@@ -18,10 +18,10 @@ function App() {
       <Router>
         <Navbar />
           <Routes>
-            <Route path="/" element={<Home></Home>} />
-            <Route path="/profile" element={<Profile></Profile>} />
             <Route path="/Login" element={<Login></Login>} /> 
             <Route path="/SignUp" element={<SingUp></SingUp>} />
+            <Route path="/" element={<Home></Home>} />
+            <Route path="/profile" element={<Profile></Profile>} />
             <Route path="/EditProfile" element={<EditProfile></EditProfile>} />
             <Route path="/Direct" element={<Direct></Direct>} />     
           </Routes>  
